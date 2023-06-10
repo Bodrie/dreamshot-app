@@ -1,0 +1,43 @@
+@import "../../variables.scss";
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  @media (max-width: 829px) {
+    align-items: initial;
+  }
+}
+
+.logo {
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 65px;
+  color: $primary-color;
+  text-transform: uppercase;
+}
+
+.menu {
+  display: flex;
+  align-items: center;
+
+  a {
+    font-size: 14px;
+    line-height: 65px;
+    color: $grey;
+    margin-right: 25px;
+  }
+
+  &::after {
+    content: "";
+    background: url(../../assets/free_delivery.png) 0 0 no-repeat;
+    width: 184px;
+    height: 55px;
+  }
+
+  @media (max-width: 829px) {
+    flex-wrap: wrap;
+    justify-content: flex-end;
+  }
+}
