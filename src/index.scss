@@ -3,7 +3,7 @@
 
 body {
   margin: 0;
-  background-color: $primary-bg;
+  background-color: $white;
   font-family: "Poppins", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -26,4 +26,8 @@ h5,
 h6,
 p {
   margin: 0;
+}
+
+::-webkit-scrollbar {
+  visibility: hidden;
 }
