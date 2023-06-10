@@ -1,5 +1,5 @@
 import React from "react";
-import { Header } from "./components";
+import { Header, Text } from "./components";
 import styles from "./App.module.scss";
 
 function App() {
@@ -7,6 +7,7 @@ function App() {
   return (
     <div className={App}>
       <Header />
+      <Text />
     </div>
   );
 }
