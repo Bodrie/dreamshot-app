@@ -4,9 +4,15 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: 45px;
+
+  @media (max-width: 1439px) {
+    margin-bottom: 87px;
+  }
 
   @media (max-width: 829px) {
     align-items: initial;
+    margin-bottom: 19px;
   }
 }
 
