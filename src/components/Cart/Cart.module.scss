@@ -1,0 +1,46 @@
+@import "../../variables.scss";
+
+.cart {
+  max-width: 476px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 13px 30px;
+  margin: 0 auto;
+  background-color: $secondary-bg;
+  border-radius: $border-radius-md;
+  margin-bottom: 55px;
+  box-sizing: border-box;
+
+  @media (max-width: 1439px) {
+    margin-bottom: 77px;
+  }
+
+  @media (max-width: 829px) {
+    max-width: 342px;
+    margin-bottom: 60px;
+    padding: 13px;
+  }
+}
+
+.price {
+    font-weight: 700;
+    font-size: 24px;
+    color: $primary-color;
+}
+
+.btn {
+  font-weight: 700;
+  font-size: 20px;
+  padding: 16px 26px;
+  color: $white;
+  background-color: $secondary-color;
+  border: none;
+  border-radius: $border-radius-md;
+  cursor: pointer;
+}
+
+.cartImg {
+  width: 30px;
+  height: 30px;
+}

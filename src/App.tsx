@@ -1,5 +1,5 @@
 import React from "react";
-import { Header, Text, ProductSlider } from "./components";
+import { Header, Text, ProductSlider, Cart } from "./components";
 import styles from "./App.module.scss";
 
 function App() {
@@ -10,6 +10,7 @@ function App() {
       <Header />
       <Text />
       <ProductSlider />
+      <Cart />
     </div>
   );
 }
