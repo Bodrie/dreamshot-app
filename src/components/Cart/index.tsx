@@ -7,10 +7,10 @@ interface CartProps {
 }
 
 const Cart = ({ setModalOpen }: CartProps) => {
-  const { cart, btn, cartImg, price } = styles;
+  const { cart, btn, cartImg, price, shadow } = styles;
 
   return (
-    <div className={cart}>
+    <div className={`${cart} ${!setModalOpen && shadow}`}>
       <img
         className={cartImg}
         src={cartIcon}

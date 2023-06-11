@@ -1,20 +1,5 @@
 @import "../../variables.scss";
 
-.overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: black;
-  filter: blur(1);
-  z-index: 1;
-}
-
-.cartContainer {
-  position: relative;
-}
-
 .cart {
   max-width: 476px;
   display: flex;
@@ -59,4 +44,10 @@
   cursor: pointer;
   width: 30px;
   height: 30px;
+}
+
+.shadow {
+  -webkit-box-shadow: 3px 3px 10px 0px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 3px 3px 10px 0px rgba(0, 0, 0, 0.5);
+  box-shadow: 3px 3px 10px 0px rgba(0, 0, 0, 0.5);
 }
