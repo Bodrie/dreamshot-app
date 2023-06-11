@@ -1,8 +1,10 @@
-import React, { useRef } from "react";
+import React, { useContext, useRef } from "react";
 import Cart from "../Cart";
 import styles from "./CartModal.module.scss";
 import useClickOutside from "../../hooks/useClickOutside";
 import { useDisableBodyScroll } from "../../hooks/useDisableBodyScroll";
+import { CartContext } from "../../context/CartContext";
+import { CartItem } from "../../types";
 
 interface CartModalProps {
   modalOpen: boolean;
@@ -16,6 +18,7 @@ const CartModal = ({
   setSuccModalOpen,
 }: CartModalProps) => {
   const { modal, listElement, ulElement, modalContainer } = styles;
+  const { cartState, totalAmount } = useContext(CartContext);
   const modalRef = useRef(null);
 
   useClickOutside(modalRef, () => {
@@ -30,29 +33,22 @@ const CartModal = ({
         <div className={modalContainer}>
           <div ref={modalRef} className={modal}>
             <ul className={ulElement}>
-              <li className={listElement}>
-                <p>Butter Pancakes</p>
-                <p>
-                  <span>$</span> 14.50
-                </p>
-              </li>
-              <li className={listElement}>
-                <p>Butter Pancakes</p>
-                <p>
-                  <span>$</span> 14.50
-                </p>
-              </li>
-              <li className={listElement}>
-                <p>Butter Pancakes</p>
-                <p>
-                  <span>$</span> 14.50
-                </p>
-              </li>
+              {!cartState.length && "Your cart is still empty."}
+              {cartState.map((item: CartItem) => {
+                return (
+                  <li className={listElement}>
+                    <p>{item.name}</p>
+                    <p>
+                      <span>$</span> {item.price.toFixed(2)}
+                    </p>
+                  </li>
+                );
+              })}
             </ul>
             <div className={listElement}>
               <p>Total</p>
               <p>
-                <span>$</span> 36.00
+                <span>$</span> {totalAmount.toFixed(2)}
               </p>
             </div>
           </div>

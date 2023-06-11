@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useContext } from "react";
 import styles from "./Cart.module.scss";
 import cartIcon from "../../assets/add_to_cart.png";
+import { CartContext } from "../../context/CartContext";
 
 interface CartProps {
   modalOpen: boolean;
@@ -10,6 +11,7 @@ interface CartProps {
 
 const Cart = ({ setModalOpen, setSuccModalOpen, modalOpen }: CartProps) => {
   const { cart, btn, cartImg, price, shadow } = styles;
+  const { setCartState, totalAmount, setTotalAmount } = useContext(CartContext);
 
   return (
     <div className={`${cart} ${modalOpen && shadow}`}>
@@ -22,13 +24,15 @@ const Cart = ({ setModalOpen, setSuccModalOpen, modalOpen }: CartProps) => {
           if (setModalOpen) setModalOpen(true);
         }}
       />
-      <p className={price}>0.00$</p>
+      <p className={price}>{totalAmount.toFixed(2)}$</p>
       <button
         className={btn}
         onClick={(e) => {
           e.stopPropagation();
           setModalOpen(false);
           setSuccModalOpen(true);
+          setCartState([]);
+          setTotalAmount(0);
         }}
       >
         Order Now
