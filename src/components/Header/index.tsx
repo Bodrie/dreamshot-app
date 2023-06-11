@@ -8,10 +8,10 @@ const Header = () => {
     <header className={header}>
       <p className={logo}>Brunchy</p>
       <div className={menu}>
-        <a href="dreamshot.bg" target="_blank">
+        <a href="https://www.dreamshot.bg/" target="_blank" rel="noreferrer">
           About
         </a>
-        <a href="dreamshot.bg" target="_blank">
+        <a href="https://www.dreamshot.bg/" target="_blank" rel="noreferrer">
           Call us
         </a>
       </div>

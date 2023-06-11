@@ -1,4 +1,4 @@
-import { createContext, useState } from "react";
+import { createContext } from "react";
 import { CartItem } from "../types";
 
 const defaultValue = {

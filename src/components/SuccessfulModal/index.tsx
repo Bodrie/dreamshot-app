@@ -12,7 +12,7 @@ const SuccessfulModal = ({
   succModalOpen,
   setSuccModalOpen,
 }: SuccessfulModalProps) => {
-  const { modal, modalContainer, title, description, btn } = styles;
+  const { modal, title, description, btn } = styles;
   const modalRef = useRef(null);
 
   useDisableBodyScroll(succModalOpen);
