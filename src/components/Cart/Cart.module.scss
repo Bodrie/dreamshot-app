@@ -37,6 +37,7 @@
   background-color: $secondary-color;
   border: none;
   border-radius: $border-radius-md;
+  transition: opacity 500ms;
 }
 
 .cartImg {
@@ -49,4 +50,9 @@
   -webkit-box-shadow: 3px 3px 10px 0px rgba(0, 0, 0, 0.5);
   -moz-box-shadow: 3px 3px 10px 0px rgba(0, 0, 0, 0.5);
   box-shadow: 3px 3px 10px 0px rgba(0, 0, 0, 0.5);
+}
+
+.disabled {
+  opacity: 0.3;
+  cursor: default;
 }

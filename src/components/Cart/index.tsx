@@ -10,7 +10,7 @@ interface CartProps {
 }
 
 const Cart = ({ setModalOpen, setSuccModalOpen, modalOpen }: CartProps) => {
-  const { cart, btn, cartImg, price, shadow } = styles;
+  const { cart, btn, cartImg, price, shadow, disabled } = styles;
   const { setCartState, totalAmount, setTotalAmount } = useContext(CartContext);
 
   return (
@@ -26,7 +26,8 @@ const Cart = ({ setModalOpen, setSuccModalOpen, modalOpen }: CartProps) => {
       />
       <p className={price}>{totalAmount.toFixed(2)}$</p>
       <button
-        className={btn}
+        disabled={!totalAmount}
+        className={`${btn} ${!totalAmount && disabled}`}
         onClick={(e) => {
           e.stopPropagation();
           setModalOpen(false);

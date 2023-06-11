@@ -34,9 +34,9 @@ const CartModal = ({
           <div ref={modalRef} className={modal}>
             <ul className={ulElement}>
               {!cartState.length && "Your cart is still empty."}
-              {cartState.map((item: CartItem) => {
+              {cartState.map((item: CartItem, index: number) => {
                 return (
-                  <li className={listElement}>
+                  <li className={listElement} key={`${item.name}-${index}`}>
                     <p>{item.name}</p>
                     <p>
                       <span>$</span> {item.price.toFixed(2)}
