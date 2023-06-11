@@ -33,5 +33,9 @@ button {
 }
 
 ::-webkit-scrollbar {
-  visibility: hidden;
+  display: none;
+}
+
+::-webkit-scrollbar-track {
+  display: none;
 }
