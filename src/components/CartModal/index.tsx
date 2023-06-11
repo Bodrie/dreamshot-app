@@ -1,4 +1,5 @@
 import React, { useContext, useRef } from "react";
+import OverlayContainer from "../OverlayContainer";
 import Cart from "../Cart";
 import styles from "./CartModal.module.scss";
 import useClickOutside from "../../hooks/useClickOutside";
@@ -17,7 +18,7 @@ const CartModal = ({
   setModalOpen,
   setSuccModalOpen,
 }: CartModalProps) => {
-  const { modal, listElement, ulElement, modalContainer } = styles;
+  const { modal, listElement, ulElement } = styles;
   const { cartState, totalAmount } = useContext(CartContext);
   const modalRef = useRef(null);
 
@@ -30,7 +31,7 @@ const CartModal = ({
   return (
     <>
       {modalOpen && (
-        <div className={modalContainer}>
+        <OverlayContainer>
           <div ref={modalRef} className={modal}>
             <ul className={ulElement}>
               {!cartState.length && "Your cart is still empty."}
@@ -57,7 +58,7 @@ const CartModal = ({
             setModalOpen={setModalOpen}
             setSuccModalOpen={setSuccModalOpen}
           />
-        </div>
+        </OverlayContainer>
       )}
     </>
   );

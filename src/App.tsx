@@ -6,18 +6,16 @@ import {
   Cart,
   CartModal,
   SuccessfulModal,
+  Container,
 } from "./components";
-import styles from "./App.module.scss";
 import CartProvider from "./context/CartProvider";
 
 function App() {
-  const { App } = styles;
-
   const [modalOpen, setModalOpen] = useState(false);
   const [succModalOpen, setSuccModalOpen] = useState(false);
 
   return (
-    <div className={App}>
+    <div>
       <CartProvider>
         <SuccessfulModal
           succModalOpen={succModalOpen}
@@ -28,16 +26,18 @@ function App() {
           setModalOpen={setModalOpen}
           setSuccModalOpen={setSuccModalOpen}
         />
-        <Header />
-        <Text />
-        <ProductSlider />
-        {!modalOpen && (
-          <Cart
-            modalOpen={modalOpen}
-            setModalOpen={setModalOpen}
-            setSuccModalOpen={setSuccModalOpen}
-          />
-        )}
+        <Container>
+          <Header />
+          <Text />
+          <ProductSlider />
+          {!modalOpen && (
+            <Cart
+              modalOpen={modalOpen}
+              setModalOpen={setModalOpen}
+              setSuccModalOpen={setSuccModalOpen}
+            />
+          )}
+        </Container>
       </CartProvider>
     </div>
   );
