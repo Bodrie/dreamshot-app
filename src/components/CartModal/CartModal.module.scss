@@ -22,9 +22,9 @@
   box-sizing: border-box;
   margin: 0 auto 20px auto;
 
-  -webkit-box-shadow: 3px 3px 10px 0px rgba(0, 0, 0, 0.5);
-  -moz-box-shadow: 3px 3px 10px 0px rgba(0, 0, 0, 0.5);
-  box-shadow: 3px 3px 10px 0px rgba(0, 0, 0, 0.5);
+  -webkit-box-shadow: 3px 3px 10px 0px $grey;
+  -moz-box-shadow: 3px 3px 10px 0px $grey;
+  box-shadow: 3px 3px 10px 0px $grey;
 
   @media (max-width: 829px) {
     max-width: 353px;

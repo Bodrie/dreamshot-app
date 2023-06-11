@@ -1,16 +1,18 @@
-import React, { useState } from "react";
+import React from "react";
 import styles from "./Cart.module.scss";
 import cartIcon from "../../assets/add_to_cart.png";
 
 interface CartProps {
-  setModalOpen?: (modalOpen: boolean) => void;
+  modalOpen: boolean;
+  setModalOpen: (modalOpen: boolean) => void;
+  setSuccModalOpen: (succModalOpen: boolean) => void;
 }
 
-const Cart = ({ setModalOpen }: CartProps) => {
+const Cart = ({ setModalOpen, setSuccModalOpen, modalOpen }: CartProps) => {
   const { cart, btn, cartImg, price, shadow } = styles;
 
   return (
-    <div className={`${cart} ${!setModalOpen && shadow}`}>
+    <div className={`${cart} ${modalOpen && shadow}`}>
       <img
         className={cartImg}
         src={cartIcon}
@@ -21,7 +23,16 @@ const Cart = ({ setModalOpen }: CartProps) => {
         }}
       />
       <p className={price}>0.00$</p>
-      <button className={btn}>Order Now</button>
+      <button
+        className={btn}
+        onClick={(e) => {
+          e.stopPropagation();
+          setModalOpen(false);
+          setSuccModalOpen(true);
+        }}
+      >
+        Order Now
+      </button>
     </div>
   );
 };

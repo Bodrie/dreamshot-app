@@ -1,0 +1,61 @@
+@import "../../variables.scss";
+
+.modalContainer {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  padding-top: 40%;
+  backdrop-filter: blur(5px);
+}
+
+.modal {
+  max-width: 615px;
+  width: 100%;
+  padding: 86px 130px;
+  border-radius: $border-radius-md;
+  background-color: $secondary-bg;
+  text-align: center;
+  box-sizing: border-box;
+  margin: 0 auto;
+
+  -webkit-box-shadow: 3px 3px 10px 0px $grey;
+  -moz-box-shadow: 3px 3px 10px 0px $grey;
+  box-shadow: 3px 3px 10px 0px $grey;
+
+  @media (max-width: 829px) {
+    max-width: 378px;
+    padding: 56px 21px;
+  }
+}
+
+.title {
+  font-weight: 700;
+  font-size: 40px;
+  color: $secondary-color;
+  margin-bottom: 20px;
+
+  @media (max-width: 829px) {
+    font-size: 32px;
+  }
+}
+
+.description {
+  font-weight: 600;
+  font-size: 20px;
+  color: $grey;
+  margin-bottom: 20px;
+}
+
+.btn {
+  font-weight: 700;
+  font-size: 20px;
+  color: $white;
+  background-color: $secondary-color;
+  border: none;
+  border-radius: $border-radius-md;
+  padding: 16px 65px;
+}

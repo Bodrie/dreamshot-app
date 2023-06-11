@@ -7,9 +7,14 @@ import { useDisableBodyScroll } from "../../hooks/useDisableBodyScroll";
 interface CartModalProps {
   modalOpen: boolean;
   setModalOpen: (modalOpen: boolean) => void;
+  setSuccModalOpen: (succModalOpen: boolean) => void;
 }
 
-const CartModal = ({ modalOpen, setModalOpen }: CartModalProps) => {
+const CartModal = ({
+  modalOpen,
+  setModalOpen,
+  setSuccModalOpen,
+}: CartModalProps) => {
   const { modal, listElement, ulElement, modalContainer } = styles;
   const modalRef = useRef(null);
 
@@ -22,12 +27,7 @@ const CartModal = ({ modalOpen, setModalOpen }: CartModalProps) => {
   return (
     <>
       {modalOpen && (
-        <div
-          className={modalContainer}
-          onScroll={() => {
-            return;
-          }}
-        >
+        <div className={modalContainer}>
           <div ref={modalRef} className={modal}>
             <ul className={ulElement}>
               <li className={listElement}>
@@ -56,7 +56,11 @@ const CartModal = ({ modalOpen, setModalOpen }: CartModalProps) => {
               </p>
             </div>
           </div>
-          <Cart />
+          <Cart
+            modalOpen={modalOpen}
+            setModalOpen={setModalOpen}
+            setSuccModalOpen={setSuccModalOpen}
+          />
         </div>
       )}
     </>
