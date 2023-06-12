@@ -1,6 +1,10 @@
 @import "../../variables.scss";
 
 .modal {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 375px;
   max-width: 480px;
   background-color: $secondary-bg;
   border-radius: $border-radius-md;
@@ -20,14 +24,11 @@
 }
 
 .ulElement {
-  padding: 0 0 35px 0;
   margin: 0 0 35px 0;
-  border-bottom: 1px solid $primary-color;
-
   max-height: 296px;
   box-sizing: border-box;
   overflow: auto;
-  padding-right: 0px;
+  padding-left: 0px;
 }
 
 .listElement {
@@ -40,5 +41,27 @@
 
   span {
     color: $secondary-color;
+  }
+
+  &__total {
+    @extend .listElement;
+    border-top: 1px solid $primary-color;
+    padding-top: 35px;
+  }
+
+  &__price {
+    display: flex;
+    align-items: baseline;
+    gap: 15px;
+  }
+
+  &__removeItem {
+    border: none;
+    background: none;
+
+    &:hover {
+      transform: scale(1.2);
+      transition: transform 200ms;
+    }
   }
 }

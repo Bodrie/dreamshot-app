@@ -19,9 +19,7 @@ const ProductCard = ({ image, name, caption, price }: Product) => {
   const { cartState, setCartState, totalAmount, setTotalAmount } =
     useContext(CartContext);
 
-  const handleAddItem = (
-    e: React.MouseEvent<HTMLButtonElement, MouseEvent>
-  ) => {
+  const handleAddItem = () => {
     setCartState([...cartState, { name, price }]);
     setTotalAmount(totalAmount + price);
   };
@@ -41,7 +39,7 @@ const ProductCard = ({ image, name, caption, price }: Product) => {
       <p className={priceStyle}>
         <span>$</span> {price.toFixed(2)}
       </p>
-      <button className={btn} onClick={(e) => handleAddItem(e)}>
+      <button className={btn} onClick={handleAddItem}>
         <img
           className={cartIcon}
           src={addToCartIcon}

@@ -13,28 +13,29 @@ const Cart = ({ setModalOpen, setSuccModalOpen, modalOpen }: CartProps) => {
   const { cart, btn, cartImg, price, shadow, disabled } = styles;
   const { setCartState, totalAmount, setTotalAmount } = useContext(CartContext);
 
+  const handleOpenCart = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+    e.stopPropagation();
+    setModalOpen(true);
+  };
+
+  const handlePlaceOrder = (
+    e: React.MouseEvent<HTMLButtonElement, MouseEvent>
+  ) => {
+    e.stopPropagation();
+    setModalOpen(false);
+    setSuccModalOpen(true);
+    setCartState([]);
+    setTotalAmount(0);
+  };
+
   return (
-    <div className={`${cart} ${modalOpen && shadow}`}>
-      <img
-        className={cartImg}
-        src={cartIcon}
-        alt="Cart icon"
-        onClick={(e) => {
-          e.stopPropagation();
-          if (setModalOpen) setModalOpen(true);
-        }}
-      />
+    <div className={`${cart} ${modalOpen && shadow}`} onClick={handleOpenCart}>
+      <img className={cartImg} src={cartIcon} alt="Cart icon" />
       <p className={price}>{totalAmount.toFixed(2)}$</p>
       <button
         disabled={!totalAmount}
         className={`${btn} ${!totalAmount && disabled}`}
-        onClick={(e) => {
-          e.stopPropagation();
-          setModalOpen(false);
-          setSuccModalOpen(true);
-          setCartState([]);
-          setTotalAmount(0);
-        }}
+        onClick={handlePlaceOrder}
       >
         Order Now
       </button>

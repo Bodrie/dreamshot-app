@@ -11,6 +11,7 @@
   border-radius: $border-radius-md;
   margin-bottom: 55px;
   box-sizing: border-box;
+  cursor: pointer;
 
   @media (max-width: 1439px) {
     margin-bottom: 77px;
@@ -41,7 +42,6 @@
 }
 
 .cartImg {
-  cursor: pointer;
   width: 30px;
   height: 30px;
 }
