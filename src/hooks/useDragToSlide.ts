@@ -1,7 +1,9 @@
 import { useEffect } from "react";
 
-export const useDragToSlide = (elementRef: any) => {
-  let pos = { top: 0, left: 0, x: 0, y: 0 };
+export const useDragToSlide = (elementRef: any, multiDirectional?: boolean) => {
+  let pos = multiDirectional
+    ? { top: 0, left: 0, x: 0, y: 0 }
+    : { left: 0, x: 0 };
 
   useEffect(() => {
     const handleMouseDown = (e: any) => {
@@ -10,12 +12,19 @@ export const useDragToSlide = (elementRef: any) => {
       elementRef.current.style.cursor = "grabbing";
       elementRef.current.style.userSelect = "none";
 
-      pos = {
-        left: elementRef.current.scrollLeft,
-        top: elementRef.current.scrollTop,
-        x: e.clientX,
-        y: e.clientY,
-      };
+      if (multiDirectional) {
+        pos = {
+          left: elementRef.current.scrollLeft,
+          x: e.clientX,
+          top: elementRef.current.scrollTop,
+          y: e.clientY,
+        };
+      } else {
+        pos = {
+          left: elementRef.current.scrollLeft,
+          x: e.clientX,
+        };
+      }
 
       elementRef.current.addEventListener("mousemove", handleMouseMove);
       elementRef.current.addEventListener("mouseup", handleMouseUp);
@@ -24,11 +33,15 @@ export const useDragToSlide = (elementRef: any) => {
     const handleMouseMove = (e: any) => {
       if (elementRef.current === null) return;
 
-      const dx = e.clientX - pos.x;
-      const dy = e.clientY - pos.y;
-
-      elementRef.current.scrollTop = pos.top - dy;
-      elementRef.current.scrollLeft = pos.left - dx;
+      if (multiDirectional && pos.y && pos.top) {
+        const dy = e.clientY - pos.y;
+        elementRef.current.scrollTop = pos.top - dy;
+        const dx = e.clientX - pos.x;
+        elementRef.current.scrollLeft = pos.left - dx;
+      } else {
+        const dx = e.clientX - pos.x;
+        elementRef.current.scrollLeft = pos.left - dx;
+      }
     };
 
     const handleMouseUp = () => {

@@ -10,7 +10,7 @@ const ProductSlider = () => {
   const products: Product[] = data.items;
 
   const sliderRef = useRef<HTMLDivElement | null>(null);
-  useDragToSlide(sliderRef);
+  useDragToSlide(sliderRef, false);
 
   return (
     <div ref={sliderRef} className={slider}>
