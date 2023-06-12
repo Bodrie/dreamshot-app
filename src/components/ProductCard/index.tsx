@@ -33,6 +33,7 @@ const ProductCard = ({ image, name, caption, price }: Product) => {
           className={productImg}
           src={require(`../../assets/${image}`)}
           alt={name}
+          draggable={false}
         />
       </div>
       <p className={product}>{name}</p>
