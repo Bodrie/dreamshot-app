@@ -1,4 +1,5 @@
 import React, { useRef } from "react";
+import Button from "../Button";
 import OverlayContainer from "../OverlayContainer";
 import styles from "./SuccessfulModal.module.scss";
 import { useDisableBodyScroll } from "../../hooks/useDisableBodyScroll";
@@ -24,9 +25,11 @@ const SuccessfulModal = ({
           <div ref={modalRef} className={modal}>
             <p className={title}>Congratulations!</p>
             <p className={description}>Your order it’s on its way.</p>
-            <button className={btn} onClick={() => setSuccModalOpen(false)}>
-              Ok
-            </button>
+            <Button
+              text="Ok"
+              className={btn}
+              onClick={() => setSuccModalOpen(false)}
+            />
           </div>
         </OverlayContainer>
       )}

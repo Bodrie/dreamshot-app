@@ -1,4 +1,5 @@
 import React, { useContext, useRef } from "react";
+import Button from "../Button";
 import OverlayContainer from "../OverlayContainer";
 import Cart from "../Cart";
 import styles from "./CartModal.module.scss";
@@ -65,17 +66,13 @@ const CartModal = ({
                       <p>
                         <span>$</span> {item.price.toFixed(2)}
                       </p>
-                      <button
+                      <Button
                         className={listElement__removeItem}
                         onClick={(e) => handleItemRemove(e, index, item)}
-                      >
-                        <img
-                          src={removeIcon}
-                          alt="Remove item"
-                          width={15}
-                          height={15}
-                        />
-                      </button>
+                        imageSrc={removeIcon}
+                        imageAlt="Remove item"
+                        imageStyles={{ width: 16, height: 16 }}
+                      />
                     </div>
                   </li>
                 );

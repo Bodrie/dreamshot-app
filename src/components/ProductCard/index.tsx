@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import Button from "../Button";
 import styles from "./ProductCard.module.scss";
 import addToCartIcon from "../../assets/add_to_cart.png";
 import { Product } from "../../types";
@@ -39,13 +40,13 @@ const ProductCard = ({ image, name, caption, price }: Product) => {
       <p className={priceStyle}>
         <span>$</span> {price.toFixed(2)}
       </p>
-      <button className={btn} onClick={handleAddItem}>
-        <img
-          className={cartIcon}
-          src={addToCartIcon}
-          alt="Add to cart button"
-        />
-      </button>
+      <Button
+        className={btn}
+        onClick={handleAddItem}
+        imageSrc={addToCartIcon}
+        imageAlt="Add to cart button"
+        imageClassNames={cartIcon}
+      />
     </div>
   );
 };

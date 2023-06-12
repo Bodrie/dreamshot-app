@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import Button from "../Button";
 import styles from "./Cart.module.scss";
 import cartIcon from "../../assets/add_to_cart.png";
 import { CartContext } from "../../context/CartContext";
@@ -32,13 +33,12 @@ const Cart = ({ setModalOpen, setSuccModalOpen, modalOpen }: CartProps) => {
     <div className={`${cart} ${modalOpen && shadow}`} onClick={handleOpenCart}>
       <img className={cartImg} src={cartIcon} alt="Cart icon" />
       <p className={price}>{totalAmount.toFixed(2)}$</p>
-      <button
+      <Button
         disabled={!totalAmount}
         className={`${btn} ${!totalAmount && disabled}`}
         onClick={handlePlaceOrder}
-      >
-        Order Now
-      </button>
+        text="Order Now"
+      />
     </div>
   );
 };
